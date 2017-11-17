@@ -4,9 +4,6 @@ TEMPFILE=$(mktemp)
 
 szradm -q list-global-variables --format=json > $TEMPFILE
 
-
-
-
 cat <<EOCREDS > /scalr-reporting/creds.json
 {
     "api_url": "$(cat $TEMPFILE | jq -r '.variables.values.API_URL')",
